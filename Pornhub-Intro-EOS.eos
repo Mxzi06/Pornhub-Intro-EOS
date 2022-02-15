@@ -18,12 +18,11 @@ f.zeichne(REC)
 f.zeichne(k_REC)
 
 REC.zeileHinzufügen('REC')
-REC.schriftgröße:= 50
-REC.verschieben(-20, 40)
+REC.schriftgröße:= 80
+REC.verschieben(-20, 75)
 REC.durchsichtigSetzen(wahr)
 REC.schriftfarbe:=orange
-
-
+REC.schriftartSetzen('Hypersans Heavy')
 
 
 k_REC.verschieben(-100, 0)
