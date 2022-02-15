@@ -1,2 +1,31 @@
 // EOS 1.5 - Programm
 f:FENSTER
+f.gitterfarbe:=schwarz 
+f.hintergrundfarbe:=schwarz
+
+//Farben 
+
+orange:FARBE
+orange.setzergb(255,163,26)
+
+
+//erste Teil
+
+k_REC:KREIS
+REC:TEXTFELD
+
+f.zeichne(REC)
+f.zeichne(k_REC)
+
+REC.zeileHinzufügen('REC')
+REC.schriftgröße:= 50
+REC.verschieben(-20, 40)
+REC.durchsichtigSetzen(wahr)
+REC.schriftfarbe:=orange
+
+
+
+
+k_REC.verschieben(-100, 0)
+k_REC.füllfarbeSetzen(orange)
+k_REC.radius:=50
