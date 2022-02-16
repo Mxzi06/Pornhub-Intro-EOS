@@ -1,6 +1,9 @@
 // EOS 1.5 - Programm
 f:FENSTER
 f.gitteraus()
+f.höhe:=1400
+f.breite:=2560
+f.verschiebe(-1340, 0)
 f.nameSetzen('Porn Hub - Maxi/Moritz')
 f.hintergrundfarbe:=schwarz
 
@@ -22,37 +25,122 @@ orange.setzergb(255,163,26)
 
 //erste Teil
 
-REC_CIRCLE:KREIS
-REC:TEXTFELD
-REC_GROUPE:GRUPPE
+rec_circle:KREIS
+rec:TEXTFELD
+rec_GROUPE:GRUPPE
 
-REC_GROUPE.schlucke(REC)
-REC_GROUPE.schlucke(REC_CIRCLE)
-f.zeichne(REC_GROUPE)
-
-
-REC.zeileHinzufügen('REC')
-REC.schriftgrößeSetzen(85)
-REC.verschieben(0, 35)
-REC.durchsichtigSetzen(wahr)
-REC.schriftfarbe:=orange
-REC.schriftartSetzen('Hypersans Heavy')
+rec_GROUPE.schlucke(rec)
+rec_GROUPE.schlucke(rec_CIRCLE)
+rec_GROUPE.strecken(22)
+f.zeichne(rec_GROUPE)
 
 
-REC_CIRCLE.verschieben(-50, -50)
-REC_CIRCLE.füllfarbeSetzen(orange)
-REC_CIRCLE.radiusSetzen(50)
+rec.zeileHinzufügen('REC')
+rec.schriftgrößeSetzen(285)
+rec.verschieben(-200, 85)
+rec.durchsichtigSetzen(wahr)
+rec.schriftfarbe:=orange
+rec.schriftartSetzen('Hypersans Heavy')
+
+
+rec_CIRCLE.verschieben(-500, 10)
+rec_CIRCLE.füllfarbeSetzen(orange)
+rec_CIRCLE.radiusSetzen(170)
 
 // wait then remove circle
-warte(400)
-REC_CIRCLE.sichtbarSetzen(falsch)
+warte(300)
+rec_CIRCLE.sichtbarSetzen(falsch)
 warte(200)
-REC_CIRCLE.sichtbarSetzen(wahr)
+rec_CIRCLE.sichtbarSetzen(wahr)
 warte(50)
 wiederhole 30 mal
-   REC_GROUPE.verschieben(0, -1)
+   rec_GROUPE.verschieben(0, -3)
+   rec_CIRCLE.radius:=rec_CIRCLE.radius-2
 *wiederhole
-REC_GROUPE.sichtbarSetzen(falsch)
+rec_GROUPE.sichtbarSetzen(falsch)
 
 // Computer
+computer_keyboard:RECHTECK
+computer:GRUPPE
+computer_display:RECHTECK
+computer_black:RECHTECK
+computer_black.füllfarbeSetzen(schwarz)
+computer.schlucke(computer_keyboard)
+computer.schlucke(computer_display)
+computer.schlucke(computer_black)
+f.zeichne(computer)
+
+computer_keyboard.eckenSetzen(-90, 9, 90, 0)
+computer_black.eckenSetzen(-65, 85, 65, 18)
+computer_keyboard.füllfarbeSetzen(orange)
+computer_display.eckenSetzen(-70, 90, 70, 13)
+computer_display.füllfarbeSetzen(orange)
+computer.verschieben(0, -30)
+wiederhole 20 mal
+   computer.verschieben(0, 1)
+   computer.strecken(1.07)
+*wiederhole
+
+circle_upload:KREIS
+circle_upload.radiusSetzen(100)
+upload:GRUPPE
+upload.schlucke(circle_upload)
+f.zeichne(upload)
+circle_upload.füllfarbeSetzen(orange)
+circle_upload.verschieben(0, 90)
+wiederhole 50 mal
+   circle_upload.verschieben(0, 2)
+*wiederhole
+
+arrow:GRUPPE
+arrow_tip:DREIECK
+arrow_tail:RECHTECK
+arrow.schlucke(arrow_tip)
+arrow.schlucke(arrow_tail)
+warte(50)
+arrow.füllfarbeSetzen(schwarz)
+f.zeichne(arrow)
+arrow_tip.eckenSetzen(-75, 0, 75, 0, 0, 75)
+arrow_tail.eckenSetzen(-30, 0, 30, -75)
+
+wiederhole 40 mal
+   arrow.verschieben(0, 2)
+*wiederhole
+
+wiederhole 30 mal
+   computer.verschieben(0, -1)
+   computer.strecken(0.005)
+*wiederhole
+
+wiederhole 55 mal
+   arrow.verschieben(0, 2)
+*wiederhole
+
+
+warte(30)
+
+circle_upload.füllfarbeSetzen(schwarz)
+arrow_tail.sichtbar:=falsch
+circle_upload.randfarbeSetzen(orange)
+
+wiederhole 4 mal
+   circle_upload.radius:=circle_upload.radius + 1
+   warte(30)
+*wiederhole
+
+arrow_tip.füllfarbeSetzen(orange)
+wiederhole 90 mal
+   arrow_tip.drehen(-1)
+   arrow_tip.strecken(0.999)
+*wiederhole
+arrow.verschieben(-40, 0)
+
+
+
+
+
+
+
+
+
 
