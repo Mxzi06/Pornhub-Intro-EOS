@@ -1,7 +1,18 @@
 // EOS 1.5 - Programm
 f:FENSTER
-f.gitterfarbe:=schwarz 
+f.gitteraus()
+f.nameSetzen('Porn Hub - Maxi/Moritz')
 f.hintergrundfarbe:=schwarz
+
+
+// private int to reduce wait
+sleep_int_tmp:Integer
+methode warte(i:Integer)
+   sleep_int_tmp:= 0
+   wiederhole
+      sleep_int_tmp:=sleep_int_tmp+1
+   *wiederhole bis sleep_int_tmp = i
+ende
 
 //Farben 
 
@@ -11,20 +22,37 @@ orange.setzergb(255,163,26)
 
 //erste Teil
 
-k_REC:KREIS
+REC_CIRCLE:KREIS
 REC:TEXTFELD
+REC_GROUPE:GRUPPE
 
-f.zeichne(REC)
-f.zeichne(k_REC)
+REC_GROUPE.schlucke(REC)
+REC_GROUPE.schlucke(REC_CIRCLE)
+f.zeichne(REC_GROUPE)
+
 
 REC.zeileHinzufügen('REC')
-REC.schriftgröße:= 80
-REC.verschieben(-20, 75)
+REC.schriftgrößeSetzen(85)
+REC.verschieben(0, 35)
 REC.durchsichtigSetzen(wahr)
 REC.schriftfarbe:=orange
 REC.schriftartSetzen('Hypersans Heavy')
 
 
-k_REC.verschieben(-100, 0)
-k_REC.füllfarbeSetzen(orange)
-k_REC.radius:=50
+REC_CIRCLE.verschieben(-50, -50)
+REC_CIRCLE.füllfarbeSetzen(orange)
+REC_CIRCLE.radiusSetzen(50)
+
+// wait then remove circle
+warte(400)
+REC_CIRCLE.sichtbarSetzen(falsch)
+warte(200)
+REC_CIRCLE.sichtbarSetzen(wahr)
+warte(50)
+wiederhole 30 mal
+   REC_GROUPE.verschieben(0, -1)
+*wiederhole
+REC_GROUPE.sichtbarSetzen(falsch)
+
+// Computer
+
